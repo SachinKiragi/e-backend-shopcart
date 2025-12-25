@@ -1,5 +1,5 @@
 function pingController(request, response){
-    return response.json({message: 'ok'});
+    return response.json({message: 'ohk'});
 }
 
 module.exports = {

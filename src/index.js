@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const { PORT } = require('./config/serverConfig')
-const { pingController } = require('./controllers/pingController')
+const pingRoutes = require('./routes/pingRoutes');
 
-app.get('/api/v1/ping', pingController);
+app.use('/api/v1/ping', pingRoutes);
 
 app.listen(PORT, ()=>{
     console.log("Server for shopcart is Up ", PORT);
