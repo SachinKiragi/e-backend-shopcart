@@ -1,7 +1,7 @@
 const express = require('express');
-const pingController = require('./pingRouter');
-const productRouter = require('./productRouter');
-const { productController } = require('../../controllers/v2/productController');
+const pingController = require('./ping_router');
+const productRouter = require('./product_router');
+const { productController } = require('../../controllers/v2/product_controller');
 const v2Router = express.Router();
 
 v2Router.use('/ping', pingController);
