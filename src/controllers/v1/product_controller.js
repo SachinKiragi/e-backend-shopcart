@@ -1,27 +1,42 @@
 const {StatusCodes, ReasonPhrases} = require('http-status-codes')
+const productService = require('../../services/product_service');
 
 function createProduct(req, res){
     try {
+        const response = productService.createProduct(req.body);
         return res
                 .status(StatusCodes.CREATED)
                 .json({
             success: true,
             error: {},
             message: ReasonPhrases.CREATED + " Product",
-            data: {
-                id: Math.random() *  (20),
-                title: req.body.title,
-                description: req.body.description,
-                category: req.body.category,
-                price: req.body.price,
-                image: req.body.image
-            }
+            data: response
         })
     } catch (error) {
         console.log("Something went wrong", error);
     }
 }
 
+function getProducts(req, res){
+    try {
+        const response = productService.getProducts();
+        return res.json(response);
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
+}
+
+function getProduct(req, res){
+    try {
+        const response = productService.getProduct(req.params.id);
+        return res.json(response);
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
+}
+
 module.exports = {
-    createProduct
+    createProduct,
+    getProducts,
+    getProduct
 }
