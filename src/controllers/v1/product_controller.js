@@ -1,9 +1,13 @@
+const {StatusCodes, ReasonPhrases} = require('http-status-codes')
+
 function createProduct(req, res){
     try {
-        return res.json({
+        return res
+                .status(StatusCodes.CREATED)
+                .json({
             success: true,
             error: {},
-            message: 'Successfully created a product',
+            message: ReasonPhrases.CREATED + " Product",
             data: {
                 id: Math.random() *  (20),
                 title: req.body.title,

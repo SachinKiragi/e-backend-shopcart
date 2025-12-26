@@ -1,8 +1,8 @@
-function errorResponse(missingProperty, error){
+function errorResponse(ReasonPhrases, error){
     return {
             success: false,
             data: {},
-            message: `${missingProperty} not present in the incoming request`,
+            message: ReasonPhrases,
             error: error
     }
 }
